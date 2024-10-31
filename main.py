@@ -1,8 +1,10 @@
 from http.server import HTTPServer, BaseHTTPRequestHandler
 import json
 import requests
+import os
 
-BASE_URL = "http://192.168.100.11"
+ip = os.getenv("VM_IP")
+BASE_URL = f"http://{ip}"
 
 
 def get_data():
