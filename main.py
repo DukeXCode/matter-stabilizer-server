@@ -8,8 +8,9 @@ BASE_URL = "http://192.168.100.11"
 def get_data():
     response = requests.get(BASE_URL + ":2038/data")
     if response.status_code != 200:
-        print(f"Request error: {response.status_code}")
-    return response.data
+        print(response.json())
+        return f"Request error: {response.status_code}"
+    return response.json().get("value")
 
 
 # Define a request handler
