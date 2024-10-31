@@ -1,15 +1,17 @@
 # Use an official Python runtime as a base image
-FROM python:3.12-slim
+FROM python:3.10-slim
 
 # Set the working directory in the container
 WORKDIR /app
 
-# Copy the current directory contents into the container at /app
-COPY . /app
+# Copy the requirements.txt file into the container at /app
+COPY requirements.txt /app
 
-# Install any dependencies (if you have a requirements.txt file)
-# Uncomment the following line if you need to install packages
-# RUN pip install -r requirements.txt
+# Install dependencies from requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy the rest of the application code into the container
+COPY . /app
 
 # Expose the port the server will run on
 EXPOSE 2101
