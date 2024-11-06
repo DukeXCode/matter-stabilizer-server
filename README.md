@@ -7,8 +7,9 @@ sudo apt update && sudo apt install python3 python3-pip
 ```
 Run the server:
 ```bash
-pip3 install -r requirements.txt && python3 main.py
+export VARIABLE_NAME=192.168.100.XXX && pip3 install -r requirements.txt && python3 main.py
 ```
+Replace XXX with your specific ip
 
 ## Run with docker
 ```bash
