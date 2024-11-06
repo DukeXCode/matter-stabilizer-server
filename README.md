@@ -2,10 +2,15 @@
 
 ## Run native
 Install python first:
+1. Switch  to root
 ```bash
-sudo apt update && sudo apt install python3 python3-pip
+su root
 ```
-Run the server:
+2. Install python
+```bash
+apt update && apt install python3 python3-pip
+```
+3. Run the server:
 ```bash
 export VARIABLE_NAME=192.168.100.XXX && pip3 install -r requirements.txt && python3 main.py
 ```
