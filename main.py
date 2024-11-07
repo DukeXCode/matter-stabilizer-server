@@ -8,11 +8,16 @@ BASE_URL = f"http://{ip}"
 
 
 def get_data():
-    response = requests.get(BASE_URL + ":2038/data")
+    response = requests.get(f'http://{ip}:2038/data')
+    payload = json.loads(response.content)
+    
     if response.status_code != 200:
-        print(response.json())
+        print(payload)
         return f"Request error: {response.status_code}"
-    return response.json().get("value")
+    
+    # Get the first attribute value without relying on its name
+    first_key = next(iter(payload))  # Get the first key in the dictionary
+    return payload[first_key]
 
 
 # Define a request handler
